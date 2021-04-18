@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Array of my FAV Colorscripts
+COLOR=(2 3 5 6 13 14 16 21 31 34 37 40)
+
+# Generating a Random number from the Given array
+ARG=${COLOR[RANDOM%${#COLOR[@]}]}
+
+# Executing colorscript command used -e flag and ARG variable
+colorscript -e $ARG
