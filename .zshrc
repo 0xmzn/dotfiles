@@ -10,6 +10,14 @@ HISTFILE=~/.cache/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
 
+
+# Vim as a manpager
+# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
+
+### Bat as a manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+
 # Auto cd when writing Dir name
 setopt autocd extendedglob
 bindkey -e
@@ -17,6 +25,7 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/msaad/.zshrc'
 # End of lines added by compinstall
+
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -86,6 +95,8 @@ alias sz='source /home/msaad/.zshrc'
 # Open my Bashrc with VIM
 alias zrc="vim /home/msaad/.zshrc"
 
+# Open vimrs cause I am too lazy
+alias vrc="vim /home/msaad/.vimrc"
 
 # Zsh highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

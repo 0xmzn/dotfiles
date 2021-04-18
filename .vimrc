@@ -22,6 +22,7 @@ call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 syntax enable
