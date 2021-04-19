@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Simple bash script to extract any Archive without thinking about which tool to use
+
+case $1 in
+    *.tar)       tar xf $1    ;;
+    *.tar.gz)    tar xzf $1   ;;
+    *.tar.xz)    tar xf $1    ;;
+    *.zip)       unzip $1     ;;
+    *.gz)        gunzip $1    ;;
+    *.rar)       unrar x $1   ;;
+    *)           echo "$1 Can't be Extracted with given tools";;
+esac
