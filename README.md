@@ -1,3 +1,3 @@
 # Dofiles
 
-Dotfiles and some poorly written scripts
+Dotfiles and some scripts
