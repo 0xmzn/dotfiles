@@ -296,8 +296,10 @@ exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
-# start blueberry app for managing bluetooth devices from tray:
-#exec --no-startup-id blueberry-tray
+# Keyboard Layout
+exec --no-startup-id "setxkbmap -layout us,ar -option 'grp:lalt_lshift_toggle'"
+
+
 
 #transparency 
 #exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
