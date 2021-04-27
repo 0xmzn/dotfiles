@@ -85,6 +85,7 @@ bindsym $mod+Shift+0    move container to workspace  $ws10
 
 
 
+
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {

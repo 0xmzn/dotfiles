@@ -27,6 +27,11 @@ zstyle :compinstall filename '/home/msaad/.zshrc'
 # End of lines added by compinstall
 
 
+# Search History by up and down arrows
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
