@@ -1,13 +1,16 @@
 #!/bin/bash
 
 
-ANS=$(echo -e "Shutdown\nSuspend\nReboot\nLock\nLogout" | dmenu -i -p "Killer Script Says:" -nf '#BBBBBB' -nb '#222222' -sb '#2E3440' -sf '#E4E4E4' -fn 'monospace-12' )
+ANS=$(echo -e "Shutdown\nSuspend\nHibernate\nReboot\nLock\nLogout" | dmenu -i -p "Killer Script Says:" -nf '#BBBBBB' -nb '#222222' -sb '#2E3440' -sf '#E4E4E4' -fn 'monospace-12' )
 
 #echo $ANS
 
 if [ "$ANS" == "Shutdown" ]
 then
-    shutdown now
+    systemctl poweroff
+elif [ "$ANS" == "Hibernate" ]
+then 
+    systemctl hibernate
 elif [ "$ANS" == "Suspend" ]
 then
     ~/.config/i3/scripts/blur-lock.sh && systemctl suspend
