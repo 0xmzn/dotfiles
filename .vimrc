@@ -17,6 +17,7 @@ set ignorecase " When searching (/), ignore case entirely
 set smartcase " When searching (/), automatically switch to a case-sensitive search if you use any capital letters
 set ttyfast " Boost speed by altering character redraw rates to your terminal
 set showmatch " Show matching brackets when text indicator is over them
+set completeopt-=preview 
 
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
@@ -25,6 +26,23 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
 call plug#end()
 
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'preservim/nerdtree'
+call vundle#end() 
+
+" YouCompleteMe Configurations 
+let g:ycm_global_ycm_extra_conf = '/home/msaad/Repositories/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+
 syntax enable
 colorscheme nord
 
+" Copy/Paste keybindings to " register
+vnoremap <C-c> "+y
+vnoremap <C-p> "+p
