@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+if [[ $(cat /sys/class/power_supply/BAT0/capacity) -le 200 ]]
+then
+    notify-send -u critical -t 300000 "Battery is low. Please plug in you power cable." && espeak "Warning: Battery is under 20%."     
+fi
