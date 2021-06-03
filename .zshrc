@@ -28,8 +28,12 @@ zstyle :compinstall filename '/home/msaad/.zshrc'
 
 
 # Search History by up and down arrows
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 
 # Basic auto/tab complete:
@@ -74,7 +78,7 @@ alias Syu="sudo pacman -Syyu"
 alias ySyu="yay -Syu"
 alias Sc="sudo pacman -Sc"
 alias ySc="yay -Sc"
-
+alias Si="pacman -Si"
 # Open Ranger
 alias fm="ranger"
 
@@ -103,8 +107,9 @@ alias zrc="vim /home/msaad/.zshrc"
 # Open vimrs cause I am too lazy
 alias vrc="vim /home/msaad/.vimrc"
 
+# Neofetch
+alias neofetch="neofetch --source /home/msaad/.config/neofetch/chad.txt"
+# Download youtube video audio only
+alias audio="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0"
 # Zsh highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-
