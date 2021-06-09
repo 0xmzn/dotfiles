@@ -35,11 +35,9 @@ new_window pixel 1
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 8
-gaps outer 4
+#gaps inner 8
+#gaps outer 4
 
-# Toggle Bar
-#bindsym $mod+b bar mode toggle
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -84,8 +82,6 @@ bindsym $mod+Shift+0    move container to workspace  $ws10
 
 
 
-
-
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -119,6 +115,9 @@ mode "resize" {
 # start a terminal
 bindsym $mod+Return exec --no-startup-id termite
 
+# Start termite in floating mood
+bindsym $mod+Shift+Return exec --no-startup-id termite --name=hover
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -140,9 +139,11 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+# keybinding list in editor:
+bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
 
 # Backlight control
-bindsym XF86MonBrightnessUp exec  --no-startup-id xbacklight +10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10
 
 # change focus
@@ -227,14 +228,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 # Redirect sound to headphones
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
-## App shortcuts
-
-# Firefox
-bindsym $mod+Shift+f exec --no-startup-id firefox
-bindsym $mod+Shift+p exec --no-startup-id firefox --private-window
-
 # ScreenShots with scort cuz maim sucks
-bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png"
+bindsym Print exec --no-startup-id "scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png"
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -242,16 +237,16 @@ bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-scr
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws10 "10:"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays 
@@ -263,8 +258,8 @@ set $ws10 "10:"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="firefox"] $ws1
-assign [class="Termite"] $ws2
+assign [class="Chromium"] $ws1
+assign [instance="termite"] $ws2
 assign [class="mpv"] $ws3
 assign [class="Zathura"] $ws4
 assign [class="discord"] $ws8
@@ -272,7 +267,7 @@ assign [class="TelegramDesktop"] $ws9
 for_window [class="Spotify"] move container to workspace $ws10
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [class=Termite] focus
+for_window [instance=termite] focus
 
 #############################################
 # autostart applications/services on login: #
@@ -285,17 +280,17 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # keep in mind that it can cause issues 
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
 # in this cases better disable dex and use manual starting apps using xdg/autostart
-exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+exec --no-startup-id  dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # num lock activated
-#exec --no-startup-id numlockx on
+#exec --no-startup-id  numlockx on
 
 # start conky: 
 #exec_always --no-startup-id conky
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id  ~/.screenlayout/monitor.sh
 
 # Keyboard Layout
 exec --no-startup-id "setxkbmap -layout us,ar -option 'grp:lalt_lshift_toggle'"
@@ -310,17 +305,23 @@ exec --no-startup-id picom -CGb
 exec --no-startup-id nm-applet
 
 # set wallpaper
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id  nitrogen --restore
+#exec --no-startup-id  feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros_i3.png
 
 #set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id  xset s 480 dpms 600 600 600
 
 # Desktop notifications
-exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+exec --no-startup-id  dbus-launch dunst --config ~/.config/dunst/dunstrc
 
+# Autostart apps as you like
+#exec --no-startup-id  sleep 2 && xfce4-terminal
+#exec --no-startup-id  sleep 3 && thunar
 
 # set floating (nontiling)for apps needing it
+for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 
 #set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
@@ -329,10 +330,9 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="TelegramDesktop"] floating enable
+for_window [instance="hover"] floating enable
  
 
-workspace $ws2 gaps outer 40
-workspace $ws2 gaps inner 20
 
 
 
@@ -369,9 +369,7 @@ client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 # (plus the system information i3status finds out, if available)
 bar {
 		font pango:Noto Sans Regular 10, FontAwesome 10
-		status_command /home/msaad/.config/bumblebee-status/bumblebee-status \
-		-t iceberg-rainbow \
-		-m spotify kernel  amixer battery datetime
+		status_command i3blocks  -c ~/.config/i3blocks/config
 	    	position top 
 #	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
@@ -386,7 +384,7 @@ strip_workspace_numbers yes
 ##strip_workspace_name no
 
 		    colors {
-		    separator          $purple
+		    separator          #ffffff
 		    background         #2e3440
 		    statusline         $white
 #                          		border 		        bg		txt		indicator
@@ -433,6 +431,7 @@ strip_workspace_numbers yes
 #####################################
 
 # Dmenu_run config
-bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#2E3440' -sf '#E4E4E4' -fn 'monospace-12'"                
+bindsym $mod+d exec --no-startup-id "dmenu_run_history -nf '#BBBBBB' -nb '#222222' -sb '#2E3440' -sf '#E4E4E4' -fn 'monospace-12'"
+
 # Rofi for workspaces as I am too lazy to script this feature into dmenu
 bindsym $mod+t exec --no-startup-id rofi -show window -hide-scrollbar 
