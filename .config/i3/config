@@ -35,8 +35,8 @@ new_window pixel 1
 # hide_edge_borders both
 
 # Set inner/outer gaps
-#gaps inner 8
-#gaps outer 4
+gaps inner 8
+gaps outer 4
 
 
 
@@ -113,10 +113,10 @@ mode "resize" {
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+Return exec --no-startup-id alacritty
 
-# Start termite in floating mood
-bindsym $mod+Shift+Return exec --no-startup-id termite --name=hover
+# Start alacritty in floating mood
+bindsym $mod+Shift+Return exec alacritty -t 'hover'
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -229,7 +229,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 # ScreenShots with scort cuz maim sucks
-bindsym Print exec --no-startup-id "scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png"
+bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png"
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -259,7 +259,7 @@ set $ws10 "10"
 
 # bind program to workspace and focus to them on startup:
 assign [class="Chromium"] $ws1
-assign [instance="termite"] $ws2
+assign [instance="Alacritty"] $ws2
 assign [class="mpv"] $ws3
 assign [class="Zathura"] $ws4
 assign [class="discord"] $ws8
@@ -267,7 +267,7 @@ assign [class="TelegramDesktop"] $ws9
 for_window [class="Spotify"] move container to workspace $ws10
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [instance=termite] focus
+for_window [instance=Alacritty] focus
 
 #############################################
 # autostart applications/services on login: #
@@ -293,8 +293,8 @@ exec --no-startup-id  dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id  ~/.screenlayout/monitor.sh
 
 # Keyboard Layout
-exec --no-startup-id "setxkbmap -layout us,ar -option 'grp:lalt_lshift_toggle'"
-
+exec_always --no-startup-id "setxkbmap -layout us,ar -option 'grp:lalt_lshift_toggle'"
+exec_always --no-startup-id "xset r rate 200 40"
 
 
 #transparency 
@@ -330,8 +330,7 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="TelegramDesktop"] floating enable
-for_window [instance="hover"] floating enable
- 
+for_window [title="hover"] floating enable
 
 
 
@@ -432,6 +431,3 @@ strip_workspace_numbers yes
 
 # Dmenu_run config
 bindsym $mod+d exec --no-startup-id "dmenu_run_history -nf '#BBBBBB' -nb '#222222' -sb '#2E3440' -sf '#E4E4E4' -fn 'monospace-12'"
-
-# Rofi for workspaces as I am too lazy to script this feature into dmenu
-bindsym $mod+t exec --no-startup-id rofi -show window -hide-scrollbar 
