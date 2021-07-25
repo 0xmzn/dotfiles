@@ -59,3 +59,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 syntax on
 colorscheme onedark
+
+nnoremap <Left> :echo "No Left for you!"<CR>
+nnoremap <Right> :echo "No Right for you!"<CR>
+nnoremap <Up> :echo "No Up for you!"<CR>
+nnoremap <Down> :echo "No Down for you!"<CR>
