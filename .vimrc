@@ -1,6 +1,3 @@
-">_ Customizations for the vim editor. Read more at https://github.com/dawsbot/vimrc-builder
-"
-
 set number " Show absolute line numbers on the left.
 filetype plugin on " Auto-detect un-labeled filetypes
 syntax on " Turn syntax highlighting on
@@ -56,6 +53,33 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+let g:startify_custom_header = [
+ \ '   ██╗    ██╗██╗████████╗ ██████╗██╗  ██╗ ██████╗██████╗  █████╗ ███████╗████████╗███████╗',
+ \ '   ██║    ██║██║╚══██╔══╝██╔════╝██║  ██║██╔════╝██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔════╝',
+ \ '   ██║ █╗ ██║██║   ██║   ██║     ███████║██║     ██████╔╝███████║█████╗     ██║   ███████╗',
+ \ '   ██║███╗██║██║   ██║   ██║     ██╔══██║██║     ██╔══██╗██╔══██║██╔══╝     ██║   ╚════██║',
+ \ '   ╚███╔███╔╝██║   ██║   ╚██████╗██║  ██║╚██████╗██║  ██║██║  ██║██║        ██║   ███████║',
+ \ '    ╚══╝╚══╝ ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝   ╚══════╝',
+ \]
+
+let g:startify_lists = [
+      \ { 'header': ['   Bookmarks'],       'type': 'bookmarks' },
+      \ { 'header': ['   MRU'],            'type': 'files' },
+      \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
+      \ ]
+let g:startify_bookmarks = [
+  \ { 'z': '~/.zshrc' },
+  \ { 'v': '~/.vimrc' },
+  \ { 'm': '~/Playground/cp/main.cpp' },
+  \ { 'c': '~/.config/i3/config' },
+  \ ]
+
+
+" Open terminal
+:nnoremap <leader>t :bel terminal<CR>
+
+" Nerdtree keymaps
+nnoremap <C-t> :NERDTreeToggle<CR>
 
 syntax on
 colorscheme onedark
@@ -64,3 +88,11 @@ nnoremap <Left> :echo "No Left for you!"<CR>
 nnoremap <Right> :echo "No Right for you!"<CR>
 nnoremap <Up> :echo "No Up for you!"<CR>
 nnoremap <Down> :echo "No Down for you!"<CR>
+
+
+
+
+
+
+
+
