@@ -19,33 +19,24 @@ set completeopt-=preview " Remove preview from ycm
 set pumheight=10
 set encoding=UTF-8
 
-" Vundle Config 
-set nocompatible
-filetype off
+" Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
-
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mhinz/vim-startify'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'joshdick/onedark.vim'
 Plugin 'valloric/youcompleteme'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'yggdroot/indentline'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
-call vundle#end()
-filetype plugin indent on
+Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'vim-airline/vim-airline'
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-let g:ycm_semantic_triggers = {
-        \   'cpp': [ 're!\w{1}' ]
-    \ }
-
-let g:airline_powerline_fonts = 1
-let g:lightline = {
-    \ 'colorscheme': 'onedark',
-    \ }
+" Theme Settings
+let g:dracula_colorterm = 0
+colorscheme dracula
 
 " Enable 256 colors instead of base 16
 set t_Co=256
@@ -53,6 +44,15 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" ycm c++
+let g:ycm_semantic_triggers = {
+        \   'cpp': [ 're!\w{1}' ]
+    \ }
+
+" airline powerline
+let g:airline_powerline_fonts = 1
+
+" Startify settings 
 let g:startify_custom_header = [
  \ '   ██╗    ██╗██╗████████╗ ██████╗██╗  ██╗ ██████╗██████╗  █████╗ ███████╗████████╗███████╗',
  \ '   ██║    ██║██║╚══██╔══╝██╔════╝██║  ██║██╔════╝██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔════╝',
@@ -61,7 +61,6 @@ let g:startify_custom_header = [
  \ '   ╚███╔███╔╝██║   ██║   ╚██████╗██║  ██║╚██████╗██║  ██║██║  ██║██║        ██║   ███████║',
  \ '    ╚══╝╚══╝ ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝   ╚══════╝',
  \]
-
 let g:startify_lists = [
       \ { 'header': ['   Bookmarks'],       'type': 'bookmarks' },
       \ { 'header': ['   MRU'],            'type': 'files' },
@@ -73,26 +72,4 @@ let g:startify_bookmarks = [
   \ { 'm': '~/Playground/cp/main.cpp' },
   \ { 'c': '~/.config/i3/config' },
   \ ]
-
-
-" Open terminal
-:nnoremap <leader>t :bel terminal<CR>
-
-" Nerdtree keymaps
-nnoremap <C-t> :NERDTreeToggle<CR>
-
-syntax on
-colorscheme onedark
-
-nnoremap <Left> :echo "No Left for you!"<CR>
-nnoremap <Right> :echo "No Right for you!"<CR>
-nnoremap <Up> :echo "No Up for you!"<CR>
-nnoremap <Down> :echo "No Down for you!"<CR>
-
-
-
-
-
-
-
 
