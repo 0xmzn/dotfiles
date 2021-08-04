@@ -11,11 +11,12 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 
-# Vim as a manpager
-# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
+# nvim as a manpager
+# export MANPAGER='/bin/bash -c "nvim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
 
 ### Bat as a manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+setopt MENU_COMPLETE
 
 
 # Auto cd when writing Dir name
@@ -85,8 +86,8 @@ alias fm="ranger"
 # Check Internet Connection by binging Google
 alias gg="ping google.com"
 
-# Open i3wm Config file in VIM
-alias cfg="vim /home/msaad/.config/i3/config"
+# Open i3wm Config file in nvim
+alias cfg="nvim /home/msaad/.config/i3/config"
 
 # Prettier grep
 alias grep='grep --color=auto'
@@ -101,11 +102,12 @@ alias rm='rm -i'
 # Source my .bashrc
 alias sz='source /home/msaad/.zshrc'
 
-# Open my Bashrc with VIM
-alias zrc="vim /home/msaad/.zshrc"
+# Open my Bashrc with nvim
+alias zrc="nvim /home/msaad/.zshrc"
 
-# Open vimrs cause I am too lazy
-alias vrc="vim /home/msaad/.vimrc"
+# Open nvimrs cause I am too lazy
+alias vrc="nvim /home/msaad/.config/nvim/init.vim"
+alias vim="nvim"
 
 # Neofetch
 alias neofetch="neofetch --source /home/msaad/.config/neofetch/chad.txt"
@@ -113,3 +115,5 @@ alias neofetch="neofetch --source /home/msaad/.config/neofetch/chad.txt"
 alias audio="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0"
 # Zsh highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
