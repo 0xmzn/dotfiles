@@ -1,5 +1,5 @@
 
-# Enable Colors 
+# Enable Colors
 autoload -U colors && colors
 
 # My Prompt. DUH!
@@ -44,9 +44,14 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-# Enable moving with ctrl + arrow 
+# Enable moving with ctrl + arrow
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+# Download Songs with metadata
+song () {
+    youtube-dl --ignore-errors -f bestaudio --add-metadata --extract-audio --audio-format mp3 --audio-quality 0 $1
+}
 
 
 # Start colorscript on bash startup
@@ -89,6 +94,9 @@ alias gg="ping google.com"
 # Open i3wm Config file in nvim
 alias cfg="nvim /home/msaad/.config/i3/config"
 
+# Python to py
+alias py="python3"
+
 # Prettier grep
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -108,6 +116,7 @@ alias zrc="nvim /home/msaad/.zshrc"
 # Open nvimrs cause I am too lazy
 alias vrc="nvim /home/msaad/.config/nvim/init.vim"
 alias vim="nvim"
+alias vi="nvim --clean"
 
 # Neofetch
 alias neofetch="neofetch --source /home/msaad/.config/neofetch/chad.txt"
@@ -116,4 +125,5 @@ alias audio="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-
 # Zsh highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Arabic Support in terminal
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
