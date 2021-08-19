@@ -18,7 +18,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'gruvbox-community/gruvbox'
+Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 colorscheme gruvbox
@@ -51,3 +53,6 @@ augroup THE_PRIMEAGEN
     autocmd!
     autocmd BufWritePre * :call TrimWhiteSpace()
 augroup END
+
+
+let g:vimwiki_list = [{'path':'~/Documents/wiki'}]
