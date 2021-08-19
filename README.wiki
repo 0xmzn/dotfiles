@@ -1,13 +1,13 @@
 = Dotfiles =
 
-OS: EndeavourOS Linux x86_64
+OS: EndeavourOS Linux
 
-Shell: ZSH
+Shell: ZSH (OhMyZsh is for Suckers)
 
 WM: i3-gaps
 
 Theme: Gruvbox Dark
 
-Terminal: Kitty
+Terminal: Kitty (R.I.P Termite)
 
 Music Daemon: MPD
