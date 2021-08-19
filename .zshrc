@@ -125,5 +125,4 @@ alias audio="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-
 # Zsh highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Arabic Support in terminal
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
