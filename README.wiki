@@ -1,8 +1,8 @@
 = Dotfiles =
 
-- OS: EndeavourOS Linux x86_64
-- Shell: ZSH
-- WM: i3-gaps
-- Theme: Gruvbox Dark
-- Terminal: Kitty
-- Music Daemon: MPD
+- OS: EndeavourOS Linux x86_64  
+- Shell: ZSH  
+- WM: i3-gaps  
+- Theme: Gruvbox Dark  
+- Terminal: Kitty  
+- Music Daemon: MPD  
