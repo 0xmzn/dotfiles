@@ -1,4 +1,4 @@
-###### I3wm Configuration || EndeavourOS #####
+##### I3wm Configuration || EndeavourOS #####
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -28,7 +28,7 @@ workspace_layout default
 # extra options for windows: #
 ##############################
 
-#border indicator on windows: 
+#border indicator on windows:
 new_window pixel 1
 
 # thin borders
@@ -113,10 +113,7 @@ mode "resize" {
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
-
-# Start alacritty in floating mood
-bindsym $mod+Shift+Return exec --no-startup-id alacritty -t 'hover'
+bindsym $mod+Return exec --no-startup-id kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -221,15 +218,16 @@ bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 #bindsym XF86AudioMute exec --no-startup-id pamixer -t && notify-send "mute: $(pamixer --get-mute)"
 
 # Playerctl keybindings
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl --player=mpd play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl --player=mpd next
+bindsym XF86AudioPrev exec --no-startup-id playerctl --player=mpd previous
 
 # Redirect sound to headphones
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 # ScreenShots with scort cuz maim sucks
-bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png"
+bindsym Print exec --no-startup-id "maim ~/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png"
+bindsym shift+Print exec --no-startup-id "maim -s ~/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshotPART.png"
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -249,7 +247,7 @@ set $ws9 "9"
 set $wsX "10"
 
 # use workspaces on different displays:
-# where you have to replace VGA-0/HDMI-0 with the names for your displays 
+# where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
 #workspace $ws1 output VGA-0
 #workspace $ws2 output VGA-0
@@ -258,7 +256,7 @@ set $wsX "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="Chromium"] $ws1
+assign [class="Google-chrome"] $ws1
 assign [class="mpv"] $ws3
 assign [class="Zathura"] $ws4
 assign [class="discord"] $ws8
@@ -266,7 +264,7 @@ assign [class="TelegramDesktop"] $ws9
 for_window [class="Spotify"] move container to workspace $ws10
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [instance=Alacritty] focus
+for_window [instance=kitty] focus
 
 #############################################
 # autostart applications/services on login: #
@@ -276,7 +274,7 @@ for_window [instance=Alacritty] focus
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # dex exec --no-startup-idute .desktop files
-# keep in mind that it can cause issues 
+# keep in mind that it can cause issues
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
 # in this cases better disable dex and use manual starting apps using xdg/autostart
 exec --no-startup-id  dex -a -s /etc/xdg/autostart/:~/.config/autostart/
@@ -284,9 +282,8 @@ exec --no-startup-id  dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 # num lock activated
 #exec --no-startup-id  numlockx on
 
-# start conky: 
-#exec --no-startup-id_always --no-startup-id conky
-
+# Start mpDris2
+exec --no-startup-id mpDris2
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
 exec --no-startup-id  ~/.screenlayout/monitor.sh
@@ -296,7 +293,7 @@ exec_always --no-startup-id "setxkbmap -layout us,ar -option 'grp:lalt_lshift_to
 exec_always --no-startup-id "xset r rate 200 40"
 
 
-#transparency 
+#transparency
 #exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 exec_always --no-startup-id picom -CGb
 
@@ -335,7 +332,7 @@ for_window [title="hover"] floating enable
 ######################################
 # color settings for bar and windows #
 ######################################
- 
+
 # set primary gruvbox colorscheme colors
 set $bg #282828
 set $red #cc241d
