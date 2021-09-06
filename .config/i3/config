@@ -115,6 +115,9 @@ mode "resize" {
 # start a terminal
 bindsym $mod+Return exec --no-startup-id kitty
 
+# Floating Terminal
+bindsym $mod+Shift+Return exec --no-startup-id "kitty --name float --class float"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -223,11 +226,11 @@ bindsym XF86AudioNext exec --no-startup-id playerctl --player=mpd next
 bindsym XF86AudioPrev exec --no-startup-id playerctl --player=mpd previous
 
 # Redirect sound to headphones
-bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
+bindsym $mod+p exec --no-startup-id pavucontrol
 
 # ScreenShots with scort cuz maim sucks
-bindsym Print exec --no-startup-id "maim ~/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png"
-bindsym shift+Print exec --no-startup-id "maim -s ~/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshotPART.png"
+bindsym Print exec --no-startup-id "maim ~/Media/Pictures/Screenshots/$(date +%F-%T)-screenshot.png"
+bindsym shift+Print exec --no-startup-id "maim -s ~/Media/Pictures/Screenshots/$(date +%F-%T)-screenshotPART.png"
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -257,6 +260,7 @@ set $wsX "10"
 
 # bind program to workspace and focus to them on startup:
 assign [class="Google-chrome"] $ws1
+assign [class="kitty"] $ws2
 assign [class="mpv"] $ws3
 assign [class="Zathura"] $ws4
 assign [class="discord"] $ws8
@@ -315,7 +319,7 @@ exec --no-startup-id  dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec --no-startup-id  sleep 3 && thunar
 
 # set floating (nontiling)for apps needing it
-for_window [class="Yad" instance="yad"] floating enable
+for_window [class="float" instance="float"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 
