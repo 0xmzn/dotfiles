@@ -1,0 +1,52 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[forecat]
+command=/home/msaad/.config/i3blocks/scripts/sb-forecast
+interval=3600
+
+[Kernel]
+label=🌽
+command=uname -r
+interval=once
+
+[localIP]
+label=🏠
+command=ip r | tail -n 1 | awk '{print $9}'
+interval=once
+
+[nettraf]
+command=/home/msaad/.config/i3blocks/scripts/sb-nettraf
+interval=1
+
+[packages]
+label=📦
+command=pacman -Q | wc -l
+interval=60
+
+[volume]
+command=/home/msaad/.config/i3blocks/scripts/sb-volume
+interval=1
+
+[memory]
+label=👾
+command=free -h | awk '/^Mem:/ {print $3}'
+interval=30
+
+[battery]
+command=/home/msaad/.config/i3blocks/scripts/sb-battery
+interval=300
+
+[time]
+label=⏱️ 
+command=date '+%Y-%m-%d %H:%M'
+interval=60
