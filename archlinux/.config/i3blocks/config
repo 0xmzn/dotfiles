@@ -35,7 +35,8 @@ interval=60
 
 [volume]
 command=/home/msaad/.config/i3blocks/scripts/sb-volume
-interval=1
+interval=once
+signal=10
 
 [memory]
 label=👾
