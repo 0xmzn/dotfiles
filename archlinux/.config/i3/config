@@ -5,6 +5,7 @@ floating_modifier $mod
 # execs
 exec --no-startup-id nm-applet
 exec --no-startup-id picom
+exec_always --no-startup-id alacritty --class magic,magic
 
 # keybindings
 set $refresh_i3blocks pkill -RTMIN+10 i3blocks
@@ -14,6 +15,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +20
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -20
 bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Shift+Return [instance="magic"] scratchpad show ; [instance="magic"] move position center
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run -fn "monospace-13" 
 bindsym $mod+p exec --no-startup-id pavucontrol
@@ -71,6 +73,10 @@ for_window [instance=Alacritty] focus
 for_window [class="^.*"] border pixel 1
 for_window [class="Alacritty"] border pixel 4
 
+for_window[instance="magic"] floating enable
+for_window[instance="magic"] resize set 925 500
+for_window[instance="magic"] move scratchpad
+for_window[instance="magic"] borderpixel 6
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
