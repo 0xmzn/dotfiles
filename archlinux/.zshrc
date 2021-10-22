@@ -88,7 +88,7 @@ alias Si="pacman -Si"
 # Open Ranger
 alias fm="ranger"
 
-# Check Internet Connection by binging Google
+# Check Internet Connection by pinging Google
 alias gg="ping google.com"
 
 # Open i3wm Config file in nvim
