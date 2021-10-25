@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-ANS=$(echo -e "Shutdown\nSuspend\nHibernate\nReboot\nLock\nLogout" | dmenu -i -p "Killer Script Says:" -nf '#BBBBBB' -nb '#222222' -sb '#2E3440' -sf '#E4E4E4' -fn 'monospace-12' )
+ANS=$(echo -e "Shutdown\nSuspend\nHibernate\nReboot\nLock\nLogout" | dmenu -i -p "Power Menu:" -fn 'monospace-13' )
 
 #echo $ANS
 
@@ -13,10 +13,10 @@ then
     systemctl hibernate
 elif [ "$ANS" == "Suspend" ]
 then
-    ~/.config/i3/scripts/blur-lock.sh && systemctl suspend
+    betterlockscreen -l & systemctl suspend
 elif [ "$ANS" == "Lock" ]
 then
-    ~/.config/i3/scripts/blur-lock.sh
+    betterlockscreen -l
 elif [ "$ANS" == "Reboot" ]
 then
     reboot
