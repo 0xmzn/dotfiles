@@ -2,10 +2,16 @@ set $mod Mod4
 font pango:monospace 11
 floating_modifier $mod
 
+# Set inner/outer gaps
+gaps inner 4
+gaps outer 2
+smart_gaps on
+
 # execs
 exec --no-startup-id nm-applet
 exec --no-startup-id picom
-exec_always --no-startup-id alacritty --class magic,magic
+exec --no-startup-id dunst
+exec --no-startup-id alacritty --class magic,magic
 
 # keybindings
 set $refresh_i3blocks pkill -RTMIN+10 i3blocks
@@ -17,9 +23,10 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -20
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return [instance="magic"] scratchpad show ; [instance="magic"] move position center
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "monospace-13" 
+bindsym $mod+d exec --no-startup-id dmenu_run_history -fn "monospace-13" 
 bindsym $mod+p exec --no-startup-id pavucontrol
 bindsym $mod+x exec --no-startup-id /home/msaad/playground/scripts/killer
+bindsym $mod+Shift+d exec --no-startup-id /home/msaad/playground/scripts/dmenuPlay.sh
 # ScreenShots with scort cuz maim sucks
 bindsym Print exec --no-startup-id "maim ~/media/pics/screenshots/$(date +%F-%T)-screenshot.png"
 bindsym shift+Print exec --no-startup-id "maim -s ~/media/pics/screenshots/$(date +%F-%T)-screenshotPART.png"
@@ -28,15 +35,19 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+l focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+h focus right
 # move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split h
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
@@ -59,12 +70,13 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-assign [class="firefox"] $ws1
+assign [class="Chromium"] $ws1
 assign [class="Alacritty"] $ws2
 assign [class="mpv"] $ws3
 assign [class="Zathura"] $ws4
 assign [class="discord"] $ws8
 assign [class="TelegramDesktop"] $ws9
+for_window [class="Spotify"] move container to workspace $ws10
 
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="TelegramDesktop"] floating enable
@@ -131,7 +143,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:mono 12
+    font pango:mono 11
     status_command i3blocks
 	position top
 }

@@ -8,7 +8,7 @@
 
 # Global properties
 separator=true
-separator_block_width=15
+separator_block_width=20
 
 [forecat]
 command=/home/msaad/.config/i3blocks/scripts/sb-forecast
