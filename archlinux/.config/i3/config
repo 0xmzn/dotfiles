@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:monospace 11
+font pango:monospace 9
 floating_modifier $mod
 
 # Set inner/outer gaps
@@ -26,7 +26,9 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run_history -fn "monospace-13" 
 bindsym $mod+p exec --no-startup-id pavucontrol
 bindsym $mod+x exec --no-startup-id /home/msaad/playground/scripts/killer
-bindsym $mod+Shift+d exec --no-startup-id /home/msaad/playground/scripts/dmenuPlay.sh
+bindsym $mod+c exec --no-startup-id clipmenu -fn "monospace-13" 
+bindsym $mod+m exec --no-startup-id /home/msaad/playground/scripts/dmenumount 
+bindsym $mod+Shift+m exec --no-startup-id /home/msaad/playground/scripts/dmenuumount 
 # ScreenShots with scort cuz maim sucks
 bindsym Print exec --no-startup-id "maim ~/media/pics/screenshots/$(date +%F-%T)-screenshot.png"
 bindsym shift+Print exec --no-startup-id "maim -s ~/media/pics/screenshots/$(date +%F-%T)-screenshotPART.png"
@@ -143,7 +145,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:mono 11
+    font pango:mono 10
     status_command i3blocks
 	position top
 }
