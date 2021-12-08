@@ -1,9 +1,8 @@
-
 # Enable Colors
 autoload -U colors && colors
 
 # My Prompt. DUH!
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%c%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[blue]%}%c%{$fg[red]%} >%{$reset_color%}%b "
 
 # History
 HISTFILE=~/.cache/zsh/history
@@ -11,12 +10,8 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 
-# nvim as a manpager
-# export MANPAGER='/bin/bash -c "nvim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
-
-### Bat as a manpager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-setopt MENU_COMPLETE
+export HOME=/home/msaad
+export PWD=/home/msaad
 
 
 # Auto cd when writing Dir name
@@ -57,7 +52,7 @@ pdf(){
     zathura $1 & disown
 }
 # Start colorscript on bash startup
-/home/msaad/playground/scripts/BashColorScript
+# /home/msaad/playground/scripts/BashColorScript
 #################################################
 # Aliases
 alias ls='ls --color=auto'
@@ -105,8 +100,13 @@ alias zrc="nvim /home/msaad/.zshrc"
 
 # Open nvimrs cause I am too lazy
 alias vrc="nvim /home/msaad/.config/nvim/init.vim"
+alias vi="nvim"
 alias vim="nvim"
-alias vi="nvim --clean"
 
 # Zsh highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+vf() {
+    vim $(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
+}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
