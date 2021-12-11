@@ -43,14 +43,15 @@ _comp_options+=(globdots)		# Include hidden files.
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Download Songs with metadata
-song () {
-    youtube-dl --ignore-errors -f bestaudio --add-metadata --extract-audio --audio-format mp3 --audio-quality 0 $1
+pdf(){
+    if [ $# -eq 0 ]; then
+        printf "\033[0;31mNo pdfs provided\n"
+        printf "Exiting\n\033[0m"
+    else
+        tabbed -c zathura $@ -e & disown
+    fi
 }
 
-pdf(){
-    zathura $1 & disown
-}
 # Start colorscript on bash startup
 # /home/msaad/playground/scripts/BashColorScript
 #################################################
