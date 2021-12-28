@@ -44,11 +44,12 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 pdf(){
-    if [ $# -eq 0 ]; then
-        printf "\033[0;31mNo pdfs provided\n"
-        printf "Exiting\n\033[0m"
+    xid=$(xwininfo -root -tree | grep tabbed | awk '{print $1}')
+    if [ -z $xid ]
+    then
+        tabbed -c zathura $@ -e & disown 
     else
-        tabbed -c zathura $@ -e & disown
+        zathura $@ -e $xid & disown
     fi
 }
 
@@ -111,3 +112,5 @@ vf() {
     vim $(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias rs='rsync -avhP --info=progress2'
