@@ -44,13 +44,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 pdf(){
-    xid=$(xwininfo -root -tree | grep tabbed | awk '{print $1}')
-    if [ -z $xid ]
-    then
-        tabbed -c zathura $@ -e & disown 
-    else
-        zathura $@ -e $xid & disown
-    fi
+    zathura $@ & disown
 }
 
 # Start colorscript on bash startup
