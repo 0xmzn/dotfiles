@@ -1,16 +1,13 @@
 #!/bin/bash
 
 
-ANS=$(echo -e "Shutdown\nSuspend\nHibernate\nReboot\nLock\nLogout" | dmenu -i -p "Power Menu:" -fn 'monospace-13' )
+ANS=$(echo -e "Shutdown\nSuspend\nReboot\nLock" | dmenu -i -p "Power Menu:" -fn 'monospace-10' )
 
 #echo $ANS
 
 if [ "$ANS" == "Shutdown" ]
 then
     systemctl poweroff
-elif [ "$ANS" == "Hibernate" ]
-then 
-    systemctl hibernate
 elif [ "$ANS" == "Suspend" ]
 then
     betterlockscreen -l & systemctl suspend
@@ -20,8 +17,5 @@ then
 elif [ "$ANS" == "Reboot" ]
 then
     reboot
-elif [ "$ANS" == "Logout" ]
-then
-    i3-msg exit
 fi
 
