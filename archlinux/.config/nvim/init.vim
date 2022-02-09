@@ -37,4 +37,19 @@ nnoremap Y gg"+yG
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-let g:vimwiki_list = [{'path':'~/docs/.vimwiki'}]
+let g:vimwiki_list = [{'path':'~/docs/.vimwiki', 'syntax': 'markdown'}]
+
+
+" Splits
+set splitbelow splitright
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
