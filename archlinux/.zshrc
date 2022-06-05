@@ -1,5 +1,6 @@
 # Lines configured by zsh-newuser-install
 export ZDOTDIR=$HOME/.config/zsh
+export ZSHRC=$HOME/.zshrc
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
@@ -27,7 +28,10 @@ zsh_add_file "zsh-exports"
 PROMPT="%B%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%} "
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--height 25% --layout=reverse --border --extended'
+export FZF_DEFAULT_OPTS='--layout=reverse --extended --height 45%'
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
 export FZF_COMPLETION_TRIGGER='`'
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -t d"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND  -t d"
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
