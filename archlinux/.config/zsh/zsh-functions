@@ -11,6 +11,14 @@ function zsh_add_plugin() {
     fi
 }
 
-pdf () {
+function pdf () {
     evince $@ & disown
+}
+
+function add_alias() {
+    toAlias=$1
+    shift
+    is=$@
+    is=`echo $is | tr '"' ''`
+    echo "alias $toAlias='$is'" >> $ZSHRC
 }

@@ -1,1 +1,1 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+/home/msaad/.zshrc
