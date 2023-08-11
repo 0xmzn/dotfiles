@@ -1,4 +1,3 @@
 # Dotfiles
 
-- Archlinux
-- dwm
+Back to good old i3wm

@@ -1,3 +1,0 @@
-export MANPAGER='nvim +Man!'
-export EDITOR="nvim"
-export PATH=$PATH:/home/msaad/.local/bin

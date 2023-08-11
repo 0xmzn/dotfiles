@@ -1,4 +1,0 @@
-alias sz="source ~/.zshrc"
-alias vi="nvim"
-alias vim="nvim"
-alias vz="nvim ~/.zshrc"
