@@ -33,3 +33,5 @@ vim.opt.fileencoding = "utf-8"
 -- Misc
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.fillchars = {eob = " "}
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300
