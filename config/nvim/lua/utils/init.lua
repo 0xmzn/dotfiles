@@ -2,8 +2,9 @@ local M = {}
 
 M.servers = {
   "lua_ls",
-  "pyright",
-  "clangd",
+  "cssls",
+  "html",
+  "tsserver",
 }
 
 return M

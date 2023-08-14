@@ -3,6 +3,12 @@ local M = {
   commit = "40c31fdde93bcd85aeb3447bb3e2a3208395a868",
   event = "Bufenter",
   cmd = { "Telescope" },
+	dependencies = {
+    {
+      "nvim-lua/plenary.nvim",
+      commit = "9a0d3bf7b832818c042aaf30f692b081ddd58bd9",
+    }
+	}
 }
 
 M.opts = {
