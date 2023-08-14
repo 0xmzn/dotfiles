@@ -1,43 +1,46 @@
 colors:
   # Default colors
   primary:
-    # hard contrast: background = '#1d2021'
-    background: '#282828'
-    # soft contrast: background = '#32302f'
-    foreground: '#ebdbb2'
+    background: '0x1d2021'
+    foreground: '0xd5c4a1'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x1d2021'
+    cursor: '0xd5c4a1'
 
   # Normal colors
   normal:
-    black:   '#282828'
-    red:     '#cc241d'
-    green:   '#98971a'
-    yellow:  '#d79921'
-    blue:    '#458588'
-    magenta: '#b16286'
-    cyan:    '#689d6a'
-    white:   '#a89984'
+    black:   '0x1d2021'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xd5c4a1'
 
   # Bright colors
   bright:
-    black:   '#928374'
-    red:     '#fb4934'
-    green:   '#b8bb26'
-    yellow:  '#fabd2f'
-    blue:    '#83a598'
-    magenta: '#d3869b'
-    cyan:    '#8ec07c'
-    white:   '#ebdbb2'
+    black:   '0x665c54'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xfbf1c7'
+
+window:
+  opacity: 0.5
 
 font:
   normal:
-    family: "SauceCodePro Nerd Font"
-    style: Regular
+    family: Hack Nerd Font
   bold:
-    family: "SauceCodePro Nerd Font"
-    style: Bold
+    family: Hack Nerd Font
   italic:
-    family: "SauceCodePro Nerd Font"
-    style: Italic
+    family: Hack Nerd Font
   bold_italic:
-    family: "SauceCodePro Nerd Font"
-    style: Bold Italic
+    family: Hack Nerd Font
+  size: 12
