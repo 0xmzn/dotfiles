@@ -32,15 +32,20 @@ colors:
     white:   '0xfbf1c7'
 
 window:
-  opacity: 0.5
+  opacity: 0.9
 
 font:
-  normal:
-    family: Hack Nerd Font
-  bold:
-    family: Hack Nerd Font
-  italic:
-    family: Hack Nerd Font
-  bold_italic:
-    family: Hack Nerd Font
   size: 12
+
+  normal:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+  bold:
+    family: "JetBrainsMono Nerd Font"
+    style: Bold
+  italic:
+    family: "JetBrainsMono Nerd Font"
+    style: Italic
+  bold_italic:
+    family: "JetBrainsMono Nerd Font"
+    style: Bold Italic
