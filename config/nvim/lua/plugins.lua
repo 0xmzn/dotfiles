@@ -18,9 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	{
-		"EdenEast/nightfox.nvim",
+		"rebelot/kanagawa.nvim",
 		config = function()
-			vim.cmd.colorscheme("carbonfox")
+			vim.cmd.colorscheme("kanagawa-dragon")
 		end,
 	},
 
