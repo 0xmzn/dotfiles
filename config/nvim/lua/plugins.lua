@@ -234,5 +234,17 @@ require("lazy").setup({
 			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
+	},
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require('Comment').setup()
+		end,
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require('colorizer').setup()
+		end,
 	}
 })

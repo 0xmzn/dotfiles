@@ -49,3 +49,5 @@ font:
     family: "JetBrainsMono Nerd Font"
     style: Bold Italic
 
+window:
+  startup_mode: Maximized
