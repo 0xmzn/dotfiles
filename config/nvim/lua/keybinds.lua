@@ -13,7 +13,8 @@ vim.keymap.set('n', '<leader>ws', telescope_builtin.lsp_dynamic_workspace_symbol
 
 vim.keymap.set('n', '<leader>sh', telescope_builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sk', telescope_builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-vim.keymap.set('n', '<leader>sf', telescope_builtin.find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sf', telescope_builtin.git_files, { desc = '[S]earch [F]iles (Git tracked)' })
+vim.keymap.set('n', '<leader>saf', telescope_builtin.find_files, { desc = '[S]earch [F]iles (All)' })
 vim.keymap.set('n', '<leader>ss', telescope_builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>sw', telescope_builtin.grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', telescope_builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -25,3 +26,5 @@ vim.keymap.set('n', '<leader><leader>', telescope_builtin.buffers, { desc = '[ ]
 vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, { desc = '[C]ode [H]over' })
 
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
+
+vim.keymap.set('n', '<leader>el', "0c$<Esc>", { desc = 'Empty Line' })
