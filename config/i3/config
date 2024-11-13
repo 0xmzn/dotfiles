@@ -19,6 +19,6 @@ include ~/.config/i3/keybinds.conf
 include ~/.config/i3/workspaces.conf
 
 bar {
-    position bottom
-    status_command i3status
+    position top
+    status_command i3blocks
 }
