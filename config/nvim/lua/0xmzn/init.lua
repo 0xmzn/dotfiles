@@ -17,5 +17,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("lazy").setup({
+    spec = "0xmzn.plugins",
+    change_detection = { notify = false }
+})
 
-require("lazy").setup("0xmzn.plugins")
+-- has to be after lazy plugins are loaded
+require("0xmzn.keybinds")
