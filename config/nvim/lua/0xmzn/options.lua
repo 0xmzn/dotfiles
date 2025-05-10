@@ -14,9 +14,12 @@ vim.o.wrap = false
 vim.o.scrolloff = 80
 vim.o.clipboard = "unnamedplus"
 vim.o.virtualedit = "block"
-vim.o.hlsearch = false
 vim.o.inccommand = "split"
 vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.o.termguicolors = true
+
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.g.mapleader = " "

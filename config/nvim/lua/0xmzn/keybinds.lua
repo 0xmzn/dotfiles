@@ -28,3 +28,5 @@ vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, { desc = '[C]ode [H]over' }
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
 
 vim.keymap.set('n', '<leader>el', "0c$<Esc>", { desc = 'Empty Line' })
+
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
